@@ -1,0 +1,456 @@
+html {
+    overflow: hidden;
+    /* overflow-y: scroll; */
+    color-scheme: dark;
+    --bs-modal-color: white;
+}
+
+body {
+    font-family: "Work Sans", sans-serif;
+    font-size: 18px;
+    color: white;
+}
+
+.main {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: calc(100vh - 118px);
+}
+
+.megrim-regular {
+    font-family: "Megrim", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+div#navbarNav {
+    justify-content: right;
+}
+
+.splash {
+    height: calc(100vh - 91px);
+    background-color: #00050c;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.splashItems, #glassback, #imageback {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 100%;
+}
+
+.splashItems {
+    position: absolute;
+}
+
+.glassback {
+    width: 100%;
+    opacity: 1;
+    position: absolute;
+    transition: backdrop-filter 3s 3s;
+    backdrop-filter: blur(0px) brightness(1) contrast(1) grayscale(0%) hue-rotate(0deg) invert(0%) opacity(100%) sepia(0%) saturate(100%);
+}
+
+.imageback {
+    position: absolute;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    opacity: 0;
+}
+
+.splashItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+div#splashTitle {
+    font-size: 7em;
+    margin: 0px;
+    transition: transform 2s ease-out;
+    transform: translateX(200vw);
+}
+
+div#splashMoto {
+    font-size: 25px;
+    margin: 0px;
+    transition: transform 1s 3s ease-out;
+    transform: translateY(200vh);
+}
+
+
+.whyUs, .industries {
+    background-color: #212529;
+    padding: 15vh 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.whyUsWord {
+    display: inline-block;
+    line-height: 5em;
+    margin: -2em 0;
+    font-size: 35px;
+}
+
+div#whyUsWords {
+    max-width: 1000px;
+    text-align: center;
+    margin: 60px 0 60px 0;
+}
+
+.flutter span {
+    transition: opacity 1s ease-in, transform 1s ease-out;
+    display: inline-block;
+    margin: 0;
+}
+
+div#serviceList {
+    background-color: #000000;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, min(100%/1, max(301px, 100%/4))));
+    grid-template-rows: auto;
+    grid-gap: 44px;
+    justify-content: center;
+    padding: 60px 0;
+}
+
+.serviceItem {
+    box-shadow: inset -10px -10px 15px rgb(20 20 20 / 50%), inset 10px 10px 15px rgb(65 65 65 / 94%);
+    background-color: #212529;
+    border-radius: 1.8em;
+}
+
+.serviceItemName {
+    text-align: center;
+    padding: 20px 10px;
+}
+
+.serviceItemDesc {
+    font-size: 28px;
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.industriesItem {
+    padding: 30px 10px;
+    max-width: 1000px;
+    background-position: center;
+    background-size: cover;
+    margin: 20px 0;
+    border-radius: 1.8em;
+}
+
+.industriesItemName {
+    font-size: larger;
+    padding: 5px 0;
+}
+
+.industriesItemDesc {
+    font-size: 29px;
+}
+
+
+
+#contactTitle {
+    color: #f03343;
+    font-size: 3em;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#contactFormTitle {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.contactBuffer {
+    padding: 0;
+    background-color: #000000;
+}
+
+.contactHolder {
+    
+    /* background-color: #000000; */
+    padding: 30px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    /* margin-top: -50px; */
+}
+
+.thanksContactMessage {
+    display: none;
+    margin: 0 0 0 30px;
+}
+
+div#contactText {
+    max-width: 1000px;
+    margin-top: 5px;
+    margin-bottom: 30px;
+    display: inline-block;
+    font-size: 30px;
+}
+
+div#contactTitle {
+    padding-top: 0;
+}
+
+div#mainContactContainer {
+    text-align: left;
+    max-width: 1050px;
+    margin: 0;
+}
+
+
+.fieldLabel {
+    font-size: 24px;
+    width: 206px;
+    vertical-align: top;
+}
+
+.field {
+    width: 317px;
+    max-width: 90%;
+}
+
+.txtField {
+    width: 100%;
+}
+
+.messageHolder {
+    width: 100%;
+    max-width: 800px;
+    display: inline-block;
+}
+
+.contactInput {
+    padding: 16px 0;
+}
+
+.inputHolder {
+    display: inline-block;
+}
+
+p.formError {
+    margin: 0;
+    padding-top: 20px;
+    color: #f03343;
+    max-height: 0;
+}
+
+.formItemError {
+    /* position: absolute; */
+    color: #f03343;
+    font-size: 15px;
+}
+
+.contactSubmit {
+    margin-top: 24px;
+    display: flex;
+}
+#contactSubmit {
+    padding: 5px;
+    background-color: #212529;
+    border-radius: 7px;
+    width: 60px;
+    text-align: center;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-block;
+}
+/* ------------------------------------------------------------------- */
+
+
+.footerSection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: black solid 1px;
+    background: #212529;
+}
+
+.footerSection .row {
+    justify-content: space-between;
+    width: 100%;
+}
+
+.footerSection .row div {
+    display: inline-block;
+    max-width: 50%;
+}
+
+.rightRow {
+    text-align: end;
+    padding-right: 30px;
+}
+
+.rightRow span {
+    padding-right: 16px;
+}
+
+.mdi{
+    cursor: pointer;
+}
+
+
+
+/* @keyframes pivotX {
+    from {
+        transform: rotateX(3deg);
+    }
+
+    to {
+        transform: rotateX(-3deg);
+    }
+}
+
+@keyframes pivotY {
+    from {
+        transform: rotateY(0deg);
+    }
+
+    to {
+        transform: rotateY(-5deg);
+    }
+}
+
+@keyframes pivotZ {
+    from {
+        transform: rotateZ(2deg);
+    }
+
+    to {
+        transform: rotateZ(-2deg);
+    }
+}
+
+.pivot {
+    animation: 7s ease-in-out 1s infinite alternate pivotX, 
+    11s ease-in-out 1s infinite alternate pivotY,
+    17s ease-in-out 1s infinite alternate pivotZ
+} */
+
+#keyboard-base {
+    padding: 0px;
+    transform-origin: 50%;
+    transform: perspective(1000px) translate3d(0px, 0px, 0px) rotate3d(1, 0, 0, 0deg) scale(.5);
+    background-color: rgb(0, 0, 0, 0);
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(30, 30px);
+    grid-template-rows: repeat(5, 60px);
+    grid-gap: 9px;
+    outline: 1px solid transparent;
+}
+
+#keyboard-base.inPlace {
+    transition: transform 2s ease-out;
+    transform: perspective(1000px) translate3d(0px, 0px, 40px) rotate3d(1, 0, 0, 50deg) scale(.5);
+}
+
+.key.inPlace {
+    transition: transform 10s ease-out, opacity 5s !important;
+    opacity: .8 !important;
+    transform: none !important;
+}
+
+.key {
+    background-color: rgb(0 0 0);
+    border: 2px solid #3c15b9e6;
+    border-radius: 5px;
+    grid-column: span 2;
+    font-size: 19px;
+    text-align: center;
+    padding-top: 17px;
+    opacity: 0;
+    outline: 1px solid transparent;
+}
+
+.key:hover {
+    border: 1px solid #eeeeee;
+
+}
+
+.delete {
+    grid-column: span 4;
+}
+
+.tab {
+    grid-column: span 3;
+}
+
+.backslash {
+    grid-column: span 3;
+}
+
+.capslock {
+    grid-column: span 4;
+}
+
+.return {
+    grid-column: span 4;
+}
+
+.leftshift {
+    grid-column: span 5;
+}
+
+.rightshift {
+    grid-column: span 5;
+}
+
+.leftctrl {
+    grid-column: span 3;
+}
+
+.command {
+    grid-column: span 3;
+    font-size: 14px;
+}
+
+.space {
+    grid-column: span 13;
+}
+
+@media (max-width: 1530px) {
+
+    div#splashMoto {
+        text-align: center;
+    }
+
+}
+
+@media (max-width: 700px) {
+    .pivot {
+        transform: scale(0.6);
+    }
+    .leftRow {
+        font-size: 12px;
+    }
+}
+
+@media (max-height: 400px) {
+    #keyboard-base {
+        padding: 0px;
+        transform-origin: top;
+    }
+
+    .pivot {
+        transform-origin: top;
+        transform: scale(0.6);
+    }
+}
