@@ -8,11 +8,11 @@ function load_stylesheets(){
     wp_enqueue_style('miStyle');
 
     // fonts
-    wp_register_style('font1', 'https://fonts.googleapis.com/css2?family=Megrim&display=swap', array(), 1, 'all');
-    wp_enqueue_style('font1');
+    // wp_register_style('font1', 'https://fonts.googleapis.com/css2?family=Megrim&display=swap', array(), 1, 'all');
+    // wp_enqueue_style('font1');
 
-    wp_register_style('font2', 'https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap', array(), 1, 'all');
-    wp_enqueue_style('font2');
+    wp_register_style('font1', 'https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;display=swap', array(), 1, 'all');
+    wp_enqueue_style('font1');
 
     wp_register_style('style', get_template_directory_uri() . '/style/profile.css?1', array(), 1, 'all');
     wp_enqueue_style('style');    
@@ -27,6 +27,14 @@ function addjs(){
     // wp_register_script('bootstrap', 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.min.js', "", 1, 1, 1);
     wp_register_script('bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js', "", 1, 1, 1);
     wp_enqueue_script('bootstrap');
+
+    wp_register_script('three', 'https://unpkg.com/three@0.139.2/build/three.min.js', "", 1, 1, 1);
+    wp_enqueue_script('three');
+
+    wp_register_script('controls', 'https://unpkg.com/three@0.139.2/examples/js/controls/OrbitControls.js', "", 1, 1, 1);
+    wp_enqueue_script('controls');
+
+    
     
     // wp_register_script('custom',  get_template_directory_uri() . '/custom.js', "", 1, 1, 1);
     // wp_enqueue_script('custom');
@@ -59,9 +67,6 @@ function post_contact() {
     $messageError = '';
     $nameError = '';
     $emailError = '';
-
-    // $myselfCh = trim(!isset($_POST['myselfCh'])? "" : $_POST['myselfCh']);
-    // $lovedCh = trim(!isset($_POST['lovedCh'])? "" : $_POST['lovedCh']);
 
     if(trim($_POST['contactName']) === '') {
         $nameError = 'Please enter your name.';
@@ -105,12 +110,7 @@ function post_contact() {
         $body = "\n\nPhone: $phone \n\n";
         $body .= "Email: $email \n\n";
         $body .= "Name: $name \n\n";
-
-        // $body .= "For: ";
-        // $body .= $myselfCh === "true" ? "Myself" : "";
-        // $body .= $myselfCh === "true" && $lovedCh === "true" ? " and " : "";
-        // $body .= $lovedCh === "true" ? "a loved-one" : "";
-        // $body .= "\n\n";
+        
 
         $body .= "Message: $message \n\n";
         $headers = 'From: '.$name.' <'.$email.'>' . "\r\n" . 'Reply-To: ' .$name.' <'. $email.'>';        

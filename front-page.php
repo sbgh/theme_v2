@@ -2,105 +2,84 @@
 <div id="main" class="main">
     <div class="splash">
 
-        <div id="imageback" class="imageback"></div>
-        <div id="glassback" class="glassback"></div>
-        <div class="splashItems">
-            <div class="splashItem">
-                <div id="splashTitle" class="splashTitle megrim-regular ucTitle">
-                    <p><?php the_field('up_title'); ?></p>
-                </div>
-                <div id="splashMoto" class="splashMoto">
-                    <p><?php the_field('moto'); ?></p>
+        <div id="cHolder"></div>
+        <nav class="navbar navbar-dark  navbar-expand-lg ">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a id="whyBtn" class="nav-link " aria-current="page" href="#">Why Choose Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="servicesBtn" class="nav-link" href="#">Our Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="industriesBtn" class="nav-link" href="#">Industries</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                More
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                                <li><a id="contactBtn" class="dropdown-item" href="#">Contact</a></li>
+                                <li><a id="loginBtn" class="dropdown-item" href="#">Login</a></li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="splashItem">
-                <div class="pivot">
-                    <div id="keyboard-base" class="keyboard-base">
-                        <div class="key">~</div>
-                        <div class="key">1</div>
-                        <div class="key">2</div>
-                        <div class="key">3</div>
-                        <div class="key">4</div>
-                        <div class="key">5</div>
-                        <div class="key">6</div>
-                        <div class="key">7</div>
-                        <div class="key">8</div>
-                        <div class="key">9</div>
-                        <div class="key">0</div>
-                        <div class="key">-</div>
-                        <div class="key">+</div>
-                        <div class="key delete">Delete</div>
-                        <div class="key tab">Tab</div>
-                        <div class="key">Q</div>
-                        <div class="key">w</div>
-                        <div class="key">E</div>
-                        <div class="key">R</div>
-                        <div class="key">T</div>
-                        <div class="key">Y</div>
-                        <div class="key">U</div>
-                        <div class="key">I</div>
-                        <div class="key">O</div>
-                        <div class="key">P</div>
-                        <div class="key">[</div>
-                        <div class="key">]</div>
-                        <div class="key backslash">\</div>
-                        <div class="key capslock">CapsLock</div>
-                        <div class="key">A</div>
-                        <div class="key">S</div>
-                        <div class="key">D</div>
-                        <div class="key">F</div>
-                        <div class="key">G</div>
-                        <div class="key">H</div>
-                        <div class="key">J</div>
-                        <div class="key">K</div>
-                        <div class="key">L</div>
-                        <div class="key">;</div>
-                        <div class="key">'</div>
-                        <div class="key return">Return</div>
-                        <div class="key leftshift">Shift</div>
-                        <div class="key">Z</div>
-                        <div class="key">X</div>
-                        <div class="key">C</div>
-                        <div class="key">V</div>
-                        <div class="key">B</div>
-                        <div class="key">N</div>
-                        <div class="key">M</div>
-                        <div class="key">,</div>
-                        <div class="key">.</div>
-                        <div class="key">/</div>
-                        <div class="key rightshift">Shift</div>
-                        <div class="key leftctrl">Ctrl</div>
-                        <div class="key">Alt</div>
-                        <div class="key command">Command</div>
-                        <div class="key space">Space</div>
-                        <div class="key command">Command</div>
-                        <div class="key">Alt</div>
-                        <div class="key">Ctrl</div>
-                        <div class="key">Fn</div>
+        </nav>
+
+        <div class="row align-middle">
+            <div class="col-md-5">
+                <div class="row splashItems">
+                    <div class="col">
+                        <div class="row splashHeader1">
+                            <?php the_field('moto'); ?>
+                        </div>
+                        <div class="row splashHeader2">
+                            <?php the_field('second_moto'); ?>
+                        </div>
 
                     </div>
                 </div>
-
+            </div>
+            <div class="col-md-7">
             </div>
         </div>
 
+
+        <div id="imageback" class="imageback"></div>
+        <div id="glassback" class="glassback"></div>
+
+        <svg id="wave" width="1920" height="100" preserveAspectRatio="none" viewBox="0 0 1920 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1330.65 90.2695C1654.87 90.2694 1859.97 30.0905 1922 0.000961304L1922 200.001L0 200.001L-5.63261e-06 135.572C28.5892 109.062 160.3 56.0414 458.431 56.0414C831.094 56.0413 925.389 90.2695 1330.65 90.2695Z" fill="#ffffff" />
+        </svg>
     </div>
-    <div id="whyUs" class="whyUs">
-        <div id="whyUsWords" class="whyUsWords"></div>
+
+
+    <div class="secondHeader">
+
+        <div class="secondHeaderText">
+            <p><?php the_field('second_header_text'); ?></p>
+        </div>
+        <svg id="secondWave" width="1920" height="100" preserveAspectRatio="none" viewBox="0 0 1920 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1330.65 90.2695C1654.87 90.2694 1859.97 30.0905 1922 0.000961304L1922 200.001L0 200.001L-5.63261e-06 135.572C28.5892 109.062 160.3 56.0414 458.431 56.0414C831.094 56.0413 925.389 90.2695 1330.65 90.2695Z" fill="#000000" />
+        </svg>
+
     </div>
-    <div id="services" class="services">
-        <div id="serviceList" class="serviceList"></div>
-    </div>
-    <div id="industries" class="industries">
-        <div id="industriesList" class="industriesList"></div>
-    </div>
+
+
     <!-- Contact Us form -->
     <div id="contactBuffer" class="contactBuffer">
         <a name="contact"></a>
         <div class="contactHolder">
             <div id="contactTitle"><?php the_field('contact_us_title'); ?></div>
             <div id="contactText"><?php the_field('contact_us_text'); ?></div>
-
 
             <div id="mainContactContainer">
 
@@ -143,10 +122,10 @@
                                 <div id="messageError" class="formError formItemError"></div>
                                 <div class="contactSubmit">
                                     <div id="contactSubmit">Send</div>
-                                    
-                    <div class="thanksContactMessage">
-                        <?php the_field('thank_you_contact_message'); ?>
-                    </div>
+
+                                    <div class="thanksContactMessage">
+                                        <?php the_field('thank_you_contact_message'); ?>
+                                    </div>
                                     <div class="loader"></div>
                                 </div>
                             </div>
@@ -158,34 +137,7 @@
             </div><!-- #container -->
         </div>
     </div>
-</div>
 
-
-<style>
-    .imageback {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-            url(<?php getMyImage(get_field('background1'), 'large'); ?>);
-    }
-</style>
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
-  <div class="modal-dialog  modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-      <div>User Name:</div>
-        <input type="text" id="username">
-        <div>Password:</div>
-        <input type="password" id="password">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Login</button>
-      </div>
-    </div>
-  </div>
 </div>
 
 <?php get_footer(); ?>

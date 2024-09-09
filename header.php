@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" style="background-color:black; color:white;" data-bs-theme="dark">
+<html lang="en">
 
 <head>
 
@@ -11,41 +11,19 @@
 
     <?php wp_head(); ?>
 
+    <style>
+        .main {
+            --mainColor: <?php the_field('main_color'); ?>;
+            background-color: <?php the_field('main_color'); ?>;
+        }
+    </style>
+
 </head>
 
 <body class='home'>
 
     <header>
-        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a id="whyBtn" class="nav-link " aria-current="page" href="#">Why Choose Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="servicesBtn" class="nav-link" href="#">Our Services</a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="industriesBtn" class="nav-link" href="#">Industries</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                More
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                                <li><a id="contactBtn" class="dropdown-item" href="#">Contact</a></li>
-                                <li><a id="loginBtn" class="dropdown-item" href="#">Login</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+
     </header>
 
 
@@ -60,265 +38,141 @@
             }
 
 
-            $("#splashTitle").css({
-                "transform": "translateX(0px)"
+
+            let scene = new THREE.Scene();
+            let camera = new THREE.PerspectiveCamera(60, innerWidth / innerHeight, 1, 1000);
+            camera.position.set(0, 8, -50).setLength(60);
+            camera.lookAt(scene.position);
+            let renderer = new THREE.WebGLRenderer({
+                antialias: true,
+                alpha: true
             });
-            $("#splashMoto").css({
-                "transform": "translateY(0px)"
+            renderer.setSize(innerWidth, innerHeight);
+            // renderer.setClearColor(0xd12020);
+            var container = document.getElementById("cHolder");
+            container.appendChild(renderer.domElement);
+
+            let controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+            let light = new THREE.DirectionalLight(0xffffff, 1);
+            light.position.setScalar(-1);
+            scene.add(light, new THREE.AmbientLight(0xffffff, 0.5));
+
+            let shape = new THREE.Shape();
+            let angleStep = Math.PI * 0.5;
+            let radius = 1;
+
+            shape.absarc(2, 2, radius, angleStep * 0, angleStep * 1);
+            shape.absarc(-2, 2, radius, angleStep * 1, angleStep * 2);
+            shape.absarc(-2, -2, radius, angleStep * 2, angleStep * 3);
+            shape.absarc(2, -2, radius, angleStep * 3, angleStep * 4);
+
+            const loader = new THREE.CubeTextureLoader();
+            loader.setPath('https://threejs.org/examples/textures/cube/pisa/');
+
+            const textureCube = loader.load([
+                'px.png', 'nx.png',
+                'py.png', 'ny.png',
+                'pz.png', 'nz.png'
+            ]);
+
+            let m = new THREE.MeshStandardMaterial({
+                color: 0xb21414,
+                envMap: textureCube,
+                metalness: .2,
+                roughness: 0.0
             });
 
-            let target = '.key'
-            document.querySelectorAll(target).forEach((i) => {
-                if (i) {
-
-                    let x = Math.random(),
-                        y = Math.random(),
-                        z = Math.random()
-                    let x2 = Math.random(),
-                        y2 = Math.random(),
-                        z2 = Math.random()
-
-                    let scopeX = $(window).width(),
-                        scopeY = $(window).height(),
-                        scopeZ = $(window).width()
-
-                    let maxRotationsDeg = 3500
-
-                    $(i).css({
-                        "transition": 'transform 0s',
-                        "transform": 'perspective(1000px) rotate3d(' + (x).toString() + ', ' + (y).toString() + ', ' + (z).toString() + ', ' + (x2 * maxRotationsDeg).toString() + 'deg) translate3d(' + ((x - .5) * scopeX).toString() + 'px, ' + ((y - .5) * scopeY).toString() + 'px, ' + ((z - .5) * scopeZ).toString() + 'px) rotate3d(' + (x2).toString() + ', ' + (y2).toString() + ', ' + (z2).toString() + ', ' + (x * maxRotationsDeg / 5).toString() + 'deg)'
-                    });
-                }
-            });
-            setTimeout(function() {
-                let target = '.key'
-
-                document.querySelectorAll(target).forEach((i) => {
-                    if (i) {
-                        $(i).addClass("inPlace")
-                    }
+            for (let i = 0; i < 42; i++) {
+                let g = new THREE.ExtrudeGeometry(shape, {
+                    depth: 100,
+                    bevelEnabled: true,
+                    bevelThickness: 0.05,
+                    bevelSize: 0.05,
+                    bevelSegments: 20,
+                    curveSegments: 20
                 });
-
-            }, 3000)
-
-            setTimeout(function() {
-                $("#keyboard-base").addClass("inPlace")
-            }, 13000)
-
-            function shiftBackground() {
-                x = Math.random()
-                y = Math.random()
-                r = Math.random()
-                $("#glassback").css({
-
-                    "backdrop-filter": "blur(0px) brightness(" + (x + .5).toString() + ") contrast(1) grayscale(" + r + ") hue-rotate(0deg) invert(0%) opacity(1) sepia(0) saturate(1)"
-
-                })
-            }
-
-            function keyPunch() {
-
-                let target = '.key'
-                document.querySelectorAll(target).forEach((i) => {
-                    if (i) {
-                        setTimeout(function(i) {
-
-                            $(i).css({
-                                "background-color": "white"
-                            })
-
-                            setTimeout(function(i) {
-
-                                $(i).css({
-                                    "background-color": "black"
-                                })
-
-                            }, 50, i)
-
-                        }, 2000 + 4000 * Math.random(), i)
-
-                    }
-                });
-                setTimeout(function() {
-                    shiftBackground()
-                    keyPunch()
-                }, 30000)
-
-            }
-            setTimeout(function() {
-                keyPunch()
-            }, 13000)
-
-            setTimeout(function() {
-                $("#imageback").css({
-                    "transition": "opacity 6s",
-                    "opacity": "1"
-                })
-            }, 16000)
-
-
-            const whyUsText = `<?php the_field('why_us'); ?>`
-            for (let n in whyUsText.split(" ")) {
-                x = Math.random() * 2 - 1
-                y = Math.random() * 2 - 1
-                r = Math.random() * 2 - 1
-                let wrd = whyUsText.split(" ")[n]
-                wrd = wrd + "&nbsp;"
-                $("#whyUsWords").append('<div class="whyUsWord flutter" data-x=' + x + ' data-y=' + y + ' data-r=' + r + '><span>' + wrd + '</span></div>')
+                g.center();
+                g.rotateX(Math.PI * 0.6);
+                let xslot=Math.floor(i/6) -2
+                let zslot=(i % 6) -4
+                g.translate(-xslot*8, -50, zslot*8);
+                g.rotateX(Math.PI * -0.2);
+                g.rotateZ(Math.PI * -0.05);
+                g.rotateY(Math.PI * -0.1);
+                 o = new THREE.Mesh(g, m);
+                // scene.rotation.x += Math.PI * -0.3;
+                scene.add(o);
             }
 
 
-            //Observe
-            //setup observe on about and contactForm
-            let options = {
-                root: null,
-                threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.00],
-                rootMargin: '-8% 0% -10% 0%',
-            };
-
-            let showMain = function(entries, observer) {
-                entries.forEach(entry => {
-
-                    const ratio = entry.intersectionRatio //entry.isIntersecting
-                    entry.target.style.opacity = ratio
-
-                    let ele = entry.target
-                    if ($(ele).hasClass("flutter")) {
-                        const x = $(ele).attr("data-x")
-                        const y = $(ele).attr("data-y")
-                        const r = $(ele).attr("data-r")
-
-                        var eWidth = $(window).width() * x / 10 * (1 - ratio)
-                        var eHeight = $(window).height() * y / 10 * (1 - ratio)
-                        var rotate = r * 180 * (1 - ratio)
-
-                        $(ele).find("span").css({
-                            "transform": "translate(" + (eWidth).toString() + "px, " + (eHeight).toString() + "px) scale(" + ratio + ")  rotate3d(" + (Math.abs(x)).toString() + ", " + (Math.abs(y)).toString() + ", " + (Math.abs(r)).toString() + ", " + (rotate).toString() + "deg)",
-                            "opacity": ratio
-                        })
-
-                        if (entry.intersectionRatio > .90) {
-                            let x = Math.random() * 2 - 1
-                            let y = Math.random() * 2 - 1
-                            $(ele).attr("data-x", x)
-                            $(ele).attr("data-y", y)
-                        }
-
-                    }
-                });
-            }
-
-            let observeShowMain = new IntersectionObserver(showMain, options)
-
-            setTimeout(function() {
-
-                let target = '.whyUsWord';
-                document.querySelectorAll(target).forEach((i) => {
-                    if (i) {
-                        observeShowMain.observe(i);
-                    }
-                });
-
-            }, 1000)
+            renderer.setAnimationLoop(_ => {
+                renderer.render(scene, camera);
+            })
 
 
-            $("#whyBtn").on("click", function() {
 
-                $("#main").animate({
-                    scrollTop: $("#whyUs").offset().top
-                }, 1000);
-                $("#whyBtn").addClass("active");
-                $("#servicesBtn").removeClass("active");
-                $("#industryBtn").removeClass("active");
-            });
+            // function create3DEnvironment() {
+            //     var container = document.getElementById("cHolder");
+            //     const renderer = new THREE.WebGLRenderer({
+            //         alpha: true
+            //     })
+            //     renderer.setSize(container.clientWidth - 16, container.clientHeight - 16);
+            //     container.appendChild(renderer.domElement);
 
-            $("#servicesBtn").on("click", function() {
-
-                $("#main").animate({
-                    scrollTop: $("#services").offset().top
-                }, 1500);
-                $("#servicesBtn").addClass("active");
-                $("#whyBtn").removeClass("active");
-                $("#industryBtn").removeClass("active");
-            });
-
-            $("#industriesBtn").on("click", function() {
-
-                $("#main").animate({
-                    scrollTop: $("#industries").offset().top
-                }, 1000);
-                $("#industryBtn").addClass("active");
-                $("#whyBtn").removeClass("active");
-                $("#industryBtn").removeClass("active");
-            });
-
-            $("#contactBtn").on("click", function() {
-
-                $("#main").animate({
-                    scrollTop: $("#contactBuffer").offset().top
-                }, 1000);
-                $("#industryBtn").removeClass("active");
-                $("#whyBtn").removeClass("active");
-                $("#industryBtn").removeClass("active");
-            });
-
-            $("#loginBtn").on("click", function() {
-
-               $("#loginModal").modal("show")
-                
-                $("#industryBtn").removeClass("active");
-                $("#whyBtn").removeClass("active");
-                $("#industryBtn").removeClass("active");
-            });
-
-            const servicesList = `<?php the_field('services'); ?>`
-            const servicesArr = servicesList.split("\n")
-
-            let twoDeeArr = [];
-            while (servicesArr.length) twoDeeArr.push(servicesArr.splice(0, 2));
-
-            if (servicesArr.length % 2 == 0) {
-                for (let x in twoDeeArr) {
-
-                    let sName = twoDeeArr[x][0]
-                    let sDesc = twoDeeArr[x][1]
-
-                    const itemHTML = "<div class='serviceItem'><div class='serviceItemName'>" + sName + "</div><div class='serviceItemDesc'>" + sDesc + "</div></div>"
-                    const itemEle = $($.parseHTML(itemHTML))
-
-                    $("#serviceList").append(itemEle)
-
-                }
-            }
-
-            const industriesList = `<?php the_field('industries'); ?>`
-            const industriesArr = industriesList.split("\n")
-
-            if (industriesArr.length % 3 == 0) {
-
-                let threeDeeArr = [];
-                while (industriesArr.length) threeDeeArr.push(industriesArr.splice(0, 3));
-                for (let x in threeDeeArr) {
-
-                    let sName = threeDeeArr[x][0]
-                    let sDesc = threeDeeArr[x][1]
-                    let simg = threeDeeArr[x][2]
-
-                    const itemHTML = "<div class='industriesItem'><div class='industriesItemName'>" + sName + "</div><div class='industriesItemDesc'>" + sDesc + "</div></div>"
-                    const itemEle = $($.parseHTML(itemHTML))
-
-                    itemEle.css({
-
-                        "background-image": "linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5) ), url(" + simg + ")"
-                    })
-
-                    $("#industriesList").append(itemEle)
+            //     const fieldOfView = 75 // measured in degrees
+            //     const aspect = 2 // the canvas default
+            //     const near = 0.1
+            //     const far = 10000
 
 
-                }
-            } else {
-                $("#industriesList").append("problem with industries list. Needs to be 3 lines per industry. name, description, image_url.")
-            }
+            //     const camera = new THREE.PerspectiveCamera(fieldOfView, aspect, near, far)
+            //     camera.position.z = 2
+
+            //     const scene = new THREE.Scene()
+
+            //     var light = new THREE.DirectionalLight(0xd12020, 1.5);
+            //     light.position.setScalar(10);
+            //     scene.add(light);
+            //     scene.add(new THREE.AmbientLight(0xd12020, 0.5));
+
+            //     const width = 1
+            //     const height = 1
+            //     const depth = 1
+            //     const geometry = new THREE.BoxGeometry(width, height, depth)
+
+            //     const material = new THREE.MeshLambertMaterial({
+            //         color: 0x999999,
+            //         wireframe: false,
+            //         transparent: true,
+            //         opacity: 0.85
+            //     })
+
+            //     // new THREE.MeshBasicMaterial({
+            //     //     color: 0x55555
+            //     // })
+
+            //     const cube = new THREE.Mesh(geometry, material)
+            //     scene.add(cube)
+
+            //     const animate = (time, speed = 1) => {
+            //         time *= 0.001 // given integer converted to seconds
+            //         const rotation = time * speed
+            //         cube.rotation.x = rotation
+            //         cube.rotation.y = rotation
+
+            //         renderer.render(scene, camera)
+
+            //         requestAnimationFrame(animate)
+            //     };
+            //     requestAnimationFrame(animate)
+            // }
+
+            // create3DEnvironment()
+
+
+
+
 
 
             $(".mdi-linkedin").on("click", function() {
