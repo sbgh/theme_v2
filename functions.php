@@ -34,6 +34,9 @@ function addjs(){
     wp_register_script('controls', 'https://unpkg.com/three@0.139.2/examples/js/controls/OrbitControls.js', "", 1, 1, 1);
     wp_enqueue_script('controls');
 
+    wp_register_script('SVGLoader', 'https://unpkg.com/three@0.139.2/examples/js/loaders/SVGLoader.js', "", 1, 1, 1);
+    wp_enqueue_script('SVGLoader');
+
     
     
     // wp_register_script('custom',  get_template_directory_uri() . '/custom.js', "", 1, 1, 1);
