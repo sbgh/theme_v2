@@ -12,10 +12,9 @@
     <?php wp_head(); ?>
 
     <style>
-        .main {
+        body {
             --mainColor: <?php the_field('main_color'); ?>;
             background-color: <?php the_field('main_color'); ?>;
-
         }
     </style>
 
@@ -68,7 +67,7 @@
                     alpha: true
                 });
                 renderer.setSize(innerWidth, innerHeight);
-                // renderer.setClearColor(0xd12020);
+
                 var container = document.getElementById("cHolder");
                 container.appendChild(renderer.domElement);
 
@@ -81,7 +80,7 @@
                 var Iconpaths = data.split("\n")
                 var icons = []
                 for (let idx in Iconpaths) {
-                    if(Iconpaths[idx].length > 20){
+                    if (Iconpaths[idx].length > 20) {
                         var pathsHolder = svgloader.parse(Iconpaths[idx])
                         var s = pathsHolder.paths[0].toShapes(true)
                         icons.push(s)
@@ -99,7 +98,7 @@
                 ]);
 
                 let mesh = new THREE.MeshStandardMaterial({
-                    color: 0xb21414,
+                    color: <?php the_field('icon_color'); ?>, // 0xb21414 ?
                     envMap: textureCube,
                     metalness: .2,
                     roughness: 0.0
@@ -109,10 +108,9 @@
                 var objects = []
                 for (let i = 0; i < 60; i++) {
                     let deg = Math.random() * 360
-                    var shapes = icons[Math.floor(Math.random() * icons.length)];//pick rnd shape
+                    var shapes = icons[Math.floor(Math.random() * icons.length)]; //pick rnd shape
                     for (let q in shapes) {
 
-                        // var shape = shapes[Math.floor(Math.random() * shapes.length)]; 
                         var shape = shapes[q]
                         let g = new THREE.ExtrudeGeometry(shape, {
                             depth: 5,
@@ -122,14 +120,13 @@
                             bevelSegments: 20,
                             curveSegments: 20
                         });
+
                         g.scale(.45, .45, .45);
-                        // g.center();
                         g.rotateY(-Math.PI);
                         g.rotateX(-Math.PI * .5);
                         let xslot = Math.floor(i / 8) - 2
                         let zslot = (i % 8) - 4
                         g.translate(-xslot * 14 - 30, 10, zslot * 13)
-                        // g.rotateZ(Math.PI * 0.1);
                         g.rotateX(Math.PI * -0.5);
                         g.rotateY(Math.PI * -0.2);
 
@@ -144,17 +141,24 @@
 
                 }
 
+                var rTime = 0
                 renderer.setAnimationLoop(_ => {
                     renderer.render(scene, camera);
 
-                    for (let x in objects) {
-                        let obj = objects[x]
-                        obj.position.z -= Math.sin(obj.deg) * .05
-                        obj.deg += .002
-                        obj.deg = obj.deg > 360 ? obj.deg -= 360 : obj.deg
+                    rTime++
+                    if (rTime % 3 == 0) {
+                        rTime = 0
+                        for (let x in objects) {
+                            let obj = objects[x]
+                            // obj.position.z -= Math.sin(obj.deg) * .05
+                            obj.position.z = Math.sin(obj.deg) * 50
+                            obj.deg += .004
+                            obj.deg = obj.deg > 360 ? obj.deg -= 360 : obj.deg
 
-                        obj.material.opacity = obj.material.opacity > 1 ? obj.material.opacity = 1 : obj.material.opacity + 0.0001;
+                            obj.material.opacity = obj.material.opacity > 1 ? obj.material.opacity = 1 : obj.material.opacity + 0.0001;
+                        }
                     }
+
                 })
 
                 function onWindowResize() {
@@ -166,6 +170,9 @@
                 }
                 window.addEventListener('resize', onWindowResize, false);
 
+                $("canvas").on("dblclick", function() {
+                    let controls = new THREE.OrbitControls(camera, renderer.domElement);
+                });
             }
 
 
