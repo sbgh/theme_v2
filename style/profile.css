@@ -127,6 +127,54 @@ div.secondHeaderWord  {
     margin: 0;
 }
 
+.why {
+    min-height: 80vh;
+    background-color: #cbcbcb;
+    color: #000000;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    padding-bottom: 120px;
+}
+
+.customCardInner {
+    background-color: white;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 21px 20px rgba(0,0,0,0.1);
+}
+
+.customCardSubtitle {
+    padding: 5px 0;
+}
+
+
+
+div#whyItemsLText {
+    padding: 0 20px;
+}
+
+div.thirdMotoWord  {
+    display: inline-block;
+    font-family: Libre Baskerville, serif;
+    line-height: 5em;
+    margin: -2em 0;
+    font-size: 35px;
+}
+
+.thirdMotoWord span {
+    transition: opacity 1s ease-in, transform 1s ease-out;
+    display: inline-block;
+    margin: 0;
+}
+
+svg#thirdWave{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
 
 /* ---------------------------Contact---------------------------------------- */
 

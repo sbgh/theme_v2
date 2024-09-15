@@ -65,8 +65,44 @@
     <div class="secondHeader">
 
         <div class="secondHeaderText"></div>
-        
+
         <svg id="secondWave" width="1920" height="100" preserveAspectRatio="none" viewBox="0 0 1920 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1330.65 90.2695C1654.87 90.2694 1859.97 30.0905 1922 0.000961304L1922 200.001L0 200.001L-5.63261e-06 135.572C28.5892 109.062 160.3 56.0414 458.431 56.0414C831.094 56.0413 925.389 90.2695 1330.65 90.2695Z" fill="#cbcbcb" />
+        </svg>
+
+    </div>
+
+    <div class="why">
+
+        <div class="whyItems row">
+            <div class="whyItemsL col-md-4">
+                <div id="whyItemsLText" class="whyItemsLText"></div>
+            </div>
+            <div class="whyItemsR1  col-md-4">
+
+                <div id = "customCard1" class="customCard">
+                    <div class="customCardInner">
+                        <div class="customCardSubtitle">IT Consulting</div>
+                        <h3 class="customCardText">
+                            Scale 25x faster by modernizing your IT tools and systems.
+                        </h3>
+                        <div class="customCardImage">
+                            <img class="img-wrapper" src="/images/image.jpg" alt="it-consulting-services" width="800" height="757" style="max-width: 100%; height: auto;">
+                        </div>
+                        <div class="button-container">
+                            <a href="/it-consulting" class="button btn-dark-outline">
+                                We'll show you how
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="whyItemsR2  col-md-4">
+
+            </div>
+        </div>
+
+        <svg id="thirdWave" width="1920" height="100" preserveAspectRatio="none" viewBox="0 0 1920 200" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1330.65 90.2695C1654.87 90.2694 1859.97 30.0905 1922 0.000961304L1922 200.001L0 200.001L-5.63261e-06 135.572C28.5892 109.062 160.3 56.0414 458.431 56.0414C831.094 56.0413 925.389 90.2695 1330.65 90.2695Z" fill="#000000" />
         </svg>
 
