@@ -258,6 +258,7 @@ div#servicesList {
 .serviceItemImg {
     /* height: 200px; */
     /* width: 40%; */
+    min-height: 200px;
     margin: 2% 2%;
     border-radius: 20px;
     box-shadow: 0px 0px 21px 20px rgba(0, 0, 0, 0.1);

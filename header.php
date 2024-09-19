@@ -388,13 +388,13 @@
                     let sDesc = twoDeeArr[x][1]
                     let sImg = twoDeeArr[x][2]
 
-                    const itemHTML = "<div class='serviceItem'><div class='col col-xs-12 col-md-6 col-lg-4 mx-auto serviceItemText'><div class='serviceItemName'></div><h3 class='serviceItemDesc'></h3></div></div>"
+                    const itemHTML = "<div class='row serviceItem'><div class='col col-12 col-md-6 col-lg-4 mx-auto serviceItemText'><div class='serviceItemName'></div><h3 class='serviceItemDesc'></h3></div></div>"
                     
                     const itemEle = $($.parseHTML(itemHTML))
                     itemEle.find(".serviceItemName").text(sName)
                     itemEle.find(".serviceItemDesc").text(sDesc)
 
-                    const itemImgHTML = "<div class='col col-xs-12 col-md-6 col-lg-4 mx-auto serviceItemImg'></div>"
+                    const itemImgHTML = "<div class='col col-12 col-md-6 col-lg-4 mx-auto serviceItemImg'></div>"
                     if (x % 2 === 0) {
                         itemEle.append(itemImgHTML)
                     } else {
