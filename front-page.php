@@ -5,7 +5,7 @@
         <div id="cHolder"></div>
         <nav class="navbar navbar-dark  navbar-expand-lg ">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"></a>
+                <a class="navbar-brand" href="#"><img src="<?php getMyImage(get_field('brand_image'), "medium"); ?>" alt="it-consulting-services" width="250" height="48"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -17,9 +17,9 @@
                         <li class="nav-item">
                             <a id="servicesBtn" class="nav-link" href="#">Our Services</a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a id="industriesBtn" class="nav-link" href="#">Industries</a>
-                        </li>
+                        </li> -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 More
@@ -72,40 +72,79 @@
 
     </div>
 
-    <div class="why">
+    <div id="whyUs" class="why">
 
         <div class="whyItems row">
-            <div class="whyItemsL col-md-4">
-                <div id="whyItemsLText" class="whyItemsLText"></div>
-            </div>
-            <div class="whyItemsR1  col-md-4">
+            <div class="whyItemsL col col-md-6 col-lg-4">
+                <div class="row align-items-center">
+                    <div>
 
-                <div id = "customCard1" class="customCard">
+                        <div id="whyItemsLText" class="whyItemsLText"></div>
+                        <div id="whyItemsLText2" class="whyItemsLText2"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="whyItemsR1 col col-md-6  col-lg-4">
+
+                <div id="customCard1" class="customCard">
                     <div class="customCardInner">
-                        <div class="customCardSubtitle">IT Consulting</div>
-                        <h3 class="customCardText">
-                            Scale 25x faster by modernizing your IT tools and systems.
-                        </h3>
+                        <div class="customCardSubtitle"></div>
+                        <h3 class="customCardText"></h3>
                         <div class="customCardImage">
-                            <img class="img-wrapper" src="/images/image.jpg" alt="it-consulting-services" width="800" height="757" style="max-width: 100%; height: auto;">
+                            <img class="img-wrapper" src="<?php getMyImage(get_field('why_panel1_image'), "medium_large"); ?>" alt="it-consulting-services" width="800" height="757" style="max-width: 100%; height: auto;">
+                            <!-- <?php $id = get_field('why_panel1_image');
+                                    echo "$id"; ?> -->
                         </div>
                         <div class="button-container">
-                            <a href="/it-consulting" class="button btn-dark-outline">
+                            <!-- <a href="/it-consulting" class="button btn-dark-outline">
                                 We'll show you how
-                            </a>
+                            </a> -->
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="whyItemsR2  col-md-4">
+            <div class="whyItemsR2 col  col-md-12  col-lg-4">
+                <div id="customCard2" class="customCard">
+                    <div class="customCardInner">
+                        <div class="customCardSubtitle"></div>
+                        <h3 class="customCardText"></h3>
+                        <div class="button-container">
+                            <!-- <a href="/it-consulting" class="button btn-dark-outline">
+                                We'll show you how
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+                <div id="customCard3" class="customCard">
+                    <div class="customCardInner">
+                        <div class="customCardSubtitle"></div>
+                        <h3 class="customCardText"></h3>
+                        <div class="button-container">
+                            <!-- <a href="/it-consulting" class="button btn-dark-outline">
+                                We'll show you how
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+
 
             </div>
         </div>
 
         <svg id="thirdWave" width="1920" height="100" preserveAspectRatio="none" viewBox="0 0 1920 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1330.65 90.2695C1654.87 90.2694 1859.97 30.0905 1922 0.000961304L1922 200.001L0 200.001L-5.63261e-06 135.572C28.5892 109.062 160.3 56.0414 458.431 56.0414C831.094 56.0413 925.389 90.2695 1330.65 90.2695Z" fill="#000000" />
+            <path d="M1330.65 90.2695C1654.87 90.2694 1859.97 30.0905 1922 0.000961304L1922 200.001L0 200.001L-5.63261e-06 135.572C28.5892 109.062 160.3 56.0414 458.431 56.0414C831.094 56.0413 925.389 90.2695 1330.65 90.2695Z"
+                fill="#ffffff" />
         </svg>
 
+    </div>
+
+    <div id="services" class="services">
+        <div id="servicesTitle" class="servicesTitle"> <?php the_field('services_title'); ?></div>
+        <div id="servicesList" class="servicesList"></div>
+        <svg id="fourthWave" width="1920" height="100" preserveAspectRatio="none" viewBox="0 0 1920 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1330.65 90.2695C1654.87 90.2694 1859.97 30.0905 1922 0.000961304L1922 200.001L0 200.001L-5.63261e-06 135.572C28.5892 109.062 160.3 56.0414 458.431 56.0414C831.094 56.0413 925.389 90.2695 1330.65 90.2695Z"
+                fill="#000000" />
+        </svg>
     </div>
 
     <!-- Contact Us form -->
@@ -172,6 +211,27 @@
         </div>
     </div>
 
-</div>
 
-<?php get_footer(); ?>
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div>User Name:</div>
+                    <input type="text" id="username">
+                    <div>Password:</div>
+                    <input type="password" id="password">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <?php get_footer(); ?>
+</div>

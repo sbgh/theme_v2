@@ -33,6 +33,10 @@ div#navbarNav {
     font-weight: 700;
 }
 
+a.navbar-brand {
+    margin-left: 50px;
+}
+
 .splash {
     height: 100vh;
     position: relative;
@@ -62,7 +66,8 @@ div#splashItems {
     font-weight: 700;
     text-decoration: none;
     text-transform: none;
-    font-size: 50px;
+    font-size: 63px;
+    margin: 10px 0;
 }
 
 div#cHolder {
@@ -111,11 +116,12 @@ canvas {
     max-width: 1000px;
     text-align: center;
     margin: 60px auto 60px auto ;
+    font-family: Inter, sans-serif;
 }
 
 div.secondHeaderWord  {
     display: inline-block;
-    font-family: Libre Baskerville, serif;
+    font-family: Inter, sans-serif;
     line-height: 5em;
     margin: -2em 0;
     font-size: 35px;
@@ -129,7 +135,7 @@ div.secondHeaderWord  {
 
 .why {
     min-height: 80vh;
-    background-color: #cbcbcb;
+    background-color: var(--offWhite);
     color: #000000;
     display: flex;
     justify-content: center;
@@ -138,21 +144,46 @@ div.secondHeaderWord  {
     padding-bottom: 120px;
 }
 
+div.customCard {
+    margin: 30px 30px 0px 30px;
+}
+
 .customCardInner {
     background-color: white;
-    padding: 10px;
+    padding: 32px;
     border-radius: 20px;
     box-shadow: 0px 0px 21px 20px rgba(0,0,0,0.1);
 }
 
 .customCardSubtitle {
     padding: 5px 0;
+    font-family: Inter, sans-serif;
+}
+
+h3.customCardText {
+    margin: 10px 0;
+    font-family: Inter, sans-serif;
 }
 
 
 
 div#whyItemsLText {
-    padding: 0 20px;
+    padding: 18px 20px;
+    width: auto;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+div#whyItemsLText2 {
+    padding: 0px 20px;
+    text-align: center;
+    font-family: Inter, sans-serif;
+}
+
+.row.align-items-center {
+    height: 100%;
 }
 
 div.thirdMotoWord  {
@@ -175,11 +206,76 @@ svg#thirdWave{
     width: 100%;
 }
 
+div#services {
+    min-height: 200px;
+    background-color: #ffffff;
+    color: #000000;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    padding-bottom: 120px;
+}
+
+div#servicesTitle {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    text-align: center;
+}
+
+div#servicesList {
+    /* background-color: #000000; */
+    /* display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, min(100%/1, max(301px, 100%/4))));
+    grid-template-rows: auto;
+    grid-gap: 44px; */
+    justify-content: center;
+    padding: 60px 0;
+}
+
+.serviceItem {
+    display: flex;
+    margin-top: 40px;
+}
+
+.serviceItemName {
+    text-align: left;
+    font-family: Inter, sans-serif;
+    padding: 10px 20px;
+}
+.serviceItemText {
+    /* min-width: 55%; */
+}
+
+.serviceItemDesc {
+    /* font-size: 16px; */
+    /* width: 40%; */
+    font-family: Inter, sans-serif;
+    text-align: left;
+    padding: 10px 20px;
+}
+
+.serviceItemImg {
+    /* height: 200px; */
+    /* width: 40%; */
+    margin: 2% 2%;
+    border-radius: 20px;
+    box-shadow: 0px 0px 21px 20px rgba(0, 0, 0, 0.1);
+    background-size: cover;
+    background-position: center;
+}
+
+svg#fourthWave{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
 
 /* ---------------------------Contact---------------------------------------- */
 
 #contactTitle {
-    color: #f03343;
+    color: var(--mainColor);
     font-size: 3em;
     max-width: 1200px;
     margin-left: auto;
@@ -220,6 +316,7 @@ div#contactText {
     margin-bottom: 30px;
     display: inline-block;
     font-size: 30px;
+    font-family: Inter, sans-serif;
 }
 
 div#contactTitle {
@@ -298,7 +395,7 @@ p.formError {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    position: fixed;
+    /* position: fixed; */
     bottom: 0;
     width: 100%;
     border-top: black solid 1px;
@@ -328,6 +425,10 @@ p.formError {
     cursor: pointer;
 }
 
+.modal-content {
+    background-color: #00000054;
+    backdrop-filter: blur(6px);
+}
 
 @media (max-width: 1530px) {
 
@@ -338,12 +439,22 @@ p.formError {
 }
 
 @media (max-width: 700px) {
+
+    .row.splashHeader2 {
+        font-size: 40px;
+    }
     .pivot {
         transform: scale(0.6);
     }
 
     .leftRow {
         font-size: 12px;
+    }
+    a.navbar-brand {
+        margin-left: 5px;
+    }
+    .row.splashItems {
+        margin: 60px 0 0 15px;
     }
 }
 
