@@ -61,7 +61,7 @@
                 scene.add(light, new THREE.AmbientLight(0xffffff, .6));
 
                 //Camara
-                let camera = new THREE.PerspectiveCamera(50, innerWidth / innerHeight, 1, 1000);
+                let camera = new THREE.PerspectiveCamera(50, innerWidth / (innerHeight + 100), 1, 1000);
                 camera.position.set(0, 8, -50).setLength(120);
                 camera.lookAt(scene.position);
                 let renderer = new THREE.WebGLRenderer({
@@ -69,7 +69,7 @@
                     alpha: true
                 });
 
-                renderer.setSize(innerWidth, innerHeight);
+                renderer.setSize(innerWidth, innerHeight + 100);
 
                 var container = document.getElementById("cHolder");
                 container.appendChild(renderer.domElement);
@@ -165,8 +165,8 @@
 
                 function onWindowResize() {
 
-                    renderer.setSize(innerWidth, innerHeight);
-                    camera.aspect = innerWidth / innerHeight;
+                    renderer.setSize(innerWidth, innerHeight + 100);
+                    camera.aspect = innerWidth / (innerHeight + 100);
                     camera.updateProjectionMatrix();
 
                 }
@@ -210,8 +210,6 @@
 
             }
 
-
-
             //--------------Observe text effect-----------------------------
 
             const inputText = `<?php the_field('second_header_text'); ?>`
@@ -229,7 +227,6 @@
                 }
                 $(".secondHeaderText").append('<div class="secondHeaderWord flutter ' + addClass + '" data-x=' + x + ' data-y=' + y + ' data-r=' + r + '><span>' + wrd + '</span></div>')
             }
-
 
             //Observe
             //setup observe on second header
@@ -409,13 +406,10 @@
                     })
 
                     $("#servicesList").append(itemEle)
-
                 }
             }
 
-
             //Contact
-
             $("#contactSubmit").on("click", function() {
 
                 focus = focus | 1;
