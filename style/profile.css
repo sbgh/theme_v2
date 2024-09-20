@@ -6,6 +6,8 @@ body {
     font-family: "Libre Baskerville", serif;
     font-size: 18px;
     color: white;
+    position: fixed;
+    top: 0;
 }
 
 .main {

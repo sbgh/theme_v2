@@ -62,7 +62,7 @@
 
                 //Camara
                 let camera = new THREE.PerspectiveCamera(50, innerWidth / (innerHeight + 100), 1, 1000);
-                camera.position.set(0, 8, -50).setLength(120);
+                camera.position.set(0, 0, -70).setLength(120);
                 camera.lookAt(scene.position);
                 let renderer = new THREE.WebGLRenderer({
                     antialias: true,
@@ -123,7 +123,7 @@
                         g.rotateX(-Math.PI * .5);
                         let xslot = Math.floor(i / 8) - 2
                         let zslot = (i % 8) - 4
-                        g.translate(-xslot * 14 - 30, 10, zslot * 13)
+                        g.translate(-xslot * 14, 10, zslot * 13)
                         g.rotateX(Math.PI * -0.5);
                         g.rotateY(Math.PI * -0.2);
 
@@ -373,7 +373,11 @@
 
             //Populate servises list
             const servicesList = `<?php the_field('services'); ?>`
+
+            const servicesListImgURLs = `<?php $services=get_field('services');spitoutImgURLs($services, "medium_large"); ?>`
+
             const servicesArr = servicesList.split("\n")
+            const servicesImgArr = servicesListImgURLs.split("\n")
 
             let twoDeeArr = [];
             while (servicesArr.length) twoDeeArr.push(servicesArr.splice(0, 3));
@@ -383,7 +387,7 @@
 
                     let sName = twoDeeArr[x][0]
                     let sDesc = twoDeeArr[x][1]
-                    let sImg = twoDeeArr[x][2]
+                    let sImg = servicesImgArr[x]
 
                     const itemHTML = "<div class='row serviceItem'><div class='col col-12 col-md-6 col-lg-4 serviceItemText'><div class='serviceItemName'></div><h3 class='serviceItemDesc'></h3></div></div>"
                     
