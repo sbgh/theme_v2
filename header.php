@@ -143,13 +143,21 @@
 
                 }
 
+                var start = Date.now()
                 var rTime = 0 //init render count
                 renderer.setAnimationLoop(_ => {
-
+                    var millis = Date.now() - start
                     //count the render calls
                     rTime++
+
                     //only move and render objects every third frame and only if canvas is on screen
                     if (rTime % 3 == 0 && canvasFocus) {
+                        if (millis > 30000) { //set camara to random pos every 10 sec
+                            start = Date.now()
+                            camera.position.set(Math.random() * 100 - 50, Math.random() * 100 - 50, Math.random() * 100 - 50).setLength((Math.random() * 180) + 40);
+                            camera.lookAt(scene.position);
+                        }
+
                         renderer.render(scene, camera);
                         rTime = 0
                         for (let x in objects) {
@@ -374,7 +382,8 @@
             //Populate servises list
             const servicesList = `<?php the_field('services'); ?>`
 
-            const servicesListImgURLs = `<?php $services=get_field('services');spitoutImgURLs($services, "medium_large"); ?>`
+            const servicesListImgURLs = `<?php $services = get_field('services');
+                                            spitoutImgURLs($services, "medium_large"); ?>`
 
             const servicesArr = servicesList.split("\n")
             const servicesImgArr = servicesListImgURLs.split("\n")
@@ -390,7 +399,7 @@
                     let sImg = servicesImgArr[x]
 
                     const itemHTML = "<div class='row serviceItem'><div class='col col-12 col-md-6 col-lg-4 serviceItemText'><div class='serviceItemName'></div><h3 class='serviceItemDesc'></h3></div></div>"
-                    
+
                     const itemEle = $($.parseHTML(itemHTML))
                     itemEle.find(".serviceItemName").text(sName)
                     itemEle.find(".serviceItemDesc").text(sDesc)
@@ -398,10 +407,10 @@
                     const itemImgHTML = "<div class='col col-12 col-md-6 col-lg-4  serviceItemImg'></div>"
                     if (x % 2 === 0) {
                         itemEle.append(itemImgHTML)
-                        itemEle.find(".serviceItemText").addClass("offset-lg-2") 
+                        itemEle.find(".serviceItemText").addClass("offset-lg-2")
                     } else {
                         itemEle.prepend(itemImgHTML)
-                        itemEle.find(".serviceItemImg").addClass("offset-lg-2") 
+                        itemEle.find(".serviceItemImg").addClass("offset-lg-2")
                     }
 
                     itemEle.find(".serviceItemImg").css({
