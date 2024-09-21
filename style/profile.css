@@ -8,12 +8,14 @@ body {
     color: white;
     position: fixed;
     top: 0;
+    width: 100%
 }
 
 .main {
     overflow-y: auto;
     overflow-x: hidden;
     height: calc(100vh);
+    width: 100%
 }
 
 .mainColor{

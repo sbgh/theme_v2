@@ -162,6 +162,8 @@
                         rTime = 0
                         for (let x in objects) {
                             let obj = objects[x]
+                            // var distance = camera.position.distanceTo( obj.position )
+                            // obj.material.opacity = 50/distance
                             obj.position.z = Math.sin(obj.deg) * 50
                             obj.deg += .004
                             obj.deg = obj.deg > 360 ? obj.deg -= 360 : obj.deg
