@@ -5,7 +5,7 @@
         <div id="cHolder"></div>
         <nav class="navbar navbar-dark  navbar-expand-lg ">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="<?php getMyImage(get_field('brand_image'), "medium"); ?>" alt="it-consulting-services" width="250" height="48"></a>
+                <a class="navbar-brand" href="#"><img id="brandImg" src="<?php getMyImage(get_field('brand_image'), "medium"); ?>" alt="it-consulting-services"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -17,9 +17,12 @@
                         <li class="nav-item">
                             <a id="servicesBtn" class="nav-link" href="#">Our Services</a>
                         </li>
+                        <li>
+                            <a id="contactBtn" class="nav-link" href="#">Contact</a>
+                        </li>
                         <!-- <li class="nav-item">
                             <a id="industriesBtn" class="nav-link" href="#">Industries</a>
-                        </li> -->
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 More
@@ -28,14 +31,14 @@
                                 <li><a id="contactBtn" class="dropdown-item" href="#">Contact</a></li>
                                 <li><a id="loginBtn" class="dropdown-item" href="#">Login</a></li>
                             </ul>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
         </nav>
 
         <div id="splashItems" class="row align-middle">
-            <div class="col-md-5">
+            <div class="col col-sm-8 col-md-6 col-lg-4 ">
                 <div class="row splashItems">
                     <div class="col">
                         <div class="row splashHeader1">

@@ -4,7 +4,7 @@ html {
 
 body {
     font-family: "Libre Baskerville", serif;
-    font-size: 18px;
+    font-size: 2.5vh;
     color: white;
     position: fixed;
     top: 0;
@@ -18,14 +18,14 @@ body {
     width: 100%
 }
 
-.mainColor{
+.mainColor {
     color: var(--mainColor)
 }
 
 div#navbarNav {
     justify-content: left;
     font-family: Inter;
-    font-size: 16px;
+    font-size: 2vh;
     background-color: #00000000;
     height: 100px;
 
@@ -35,14 +35,20 @@ div#navbarNav {
     font-weight: 700;
     color: rgb(255 255 255);
     font-weight: 700;
+    font-size: 2vh;
+    margin-left: 2vh;
 }
 
 a.navbar-brand {
     margin-left: 50px;
 }
+   
+img#brandImg { 
+    width: 19vw;
+}
 
 .splash {
-    height: calc(100vh + 100px);
+    height: calc(100vh + 10vw);
     position: relative;
 }
 
@@ -60,8 +66,8 @@ div#splashItems {
     font-weight: 400;
     text-decoration: none;
     text-transform: none;
-    font-size: 22px;
-    margin: 10px 0;
+    font-size: 3vh;
+    margin: 7vh 0 2vh;
 }
 
 .row.splashHeader2 {
@@ -70,13 +76,14 @@ div#splashItems {
     font-weight: 700;
     text-decoration: none;
     text-transform: none;
-    font-size: 63px;
-    margin: 10px 0;
+    font-size: 8vh;
+    margin: 7vh 0 0;
 }
 
 div#cHolder {
     width: 100%;
     position: absolute;
+    height: calc(100vh + 10vw);
 }
 
 
@@ -84,17 +91,19 @@ svg#wave {
     position: absolute;
     bottom: 0;
     width: 100%;
+    height: 10vw;
 }
 
-svg#secondWave{
+svg#secondWave {
     position: absolute;
     bottom: 0;
     width: 100%;
+    height: 10vw;
 }
 
 canvas {
-    display: block; 
-  }
+    display: block;
+}
 
 .secondHeader {
     min-height: 80vh;
@@ -116,19 +125,19 @@ canvas {
     padding: 50px;
 } */
 
-.secondHeaderText{
-    max-width: 1000px;
+.secondHeaderText {
+    max-width: 84vw;
     text-align: center;
-    margin: 60px auto 60px auto ;
+    margin: 5vh auto 5vh auto;
     font-family: Inter, sans-serif;
 }
 
-div.secondHeaderWord  {
+div.secondHeaderWord {
     display: inline-block;
     font-family: Inter, sans-serif;
     line-height: 5em;
     margin: -2em 0;
-    font-size: 35px;
+    font-size: 4vh;
 }
 
 .secondHeaderWord span {
@@ -138,35 +147,34 @@ div.secondHeaderWord  {
 }
 
 .why {
-    min-height: 80vh;
     background-color: var(--offWhite);
     color: #000000;
     display: flex;
     justify-content: center;
     flex-direction: column;
     position: relative;
-    padding-bottom: 120px;
 }
 
 div.customCard {
-    margin: 30px 30px 0px 30px;
+    margin: 2vh 2vh 0px 2vh;
 }
 
 .customCardInner {
     background-color: white;
-    padding: 32px;
-    border-radius: 20px;
-    box-shadow: 0px 0px 21px 20px rgba(0,0,0,0.1);
+    padding: 3vh;
+    border-radius: 1vh;
+    box-shadow: 0px 0px 2vh 2vh rgba(0, 0, 0, 0.1);
 }
 
 .customCardSubtitle {
-    padding: 5px 0;
+    padding: 1vh 0;
     font-family: Inter, sans-serif;
 }
 
 h3.customCardText {
-    margin: 10px 0;
+    margin: 1vh 0;
     font-family: Inter, sans-serif;
+    font-size: 3.5vh;
 }
 
 
@@ -190,12 +198,12 @@ div#whyItemsLText2 {
     height: 100%;
 }
 
-div.thirdMotoWord  {
+div.thirdMotoWord {
     display: inline-block;
     font-family: Libre Baskerville, serif;
     line-height: 5em;
     margin: -2em 0;
-    font-size: 35px;
+    font-size: 3vh;
 }
 
 .thirdMotoWord span {
@@ -204,10 +212,17 @@ div.thirdMotoWord  {
     margin: 0;
 }
 
-svg#thirdWave{
-    position: absolute;
-    bottom: 0;
+svg#thirdWave {
+    /* position: absolute;
+    bottom: 0; */
     width: 100%;
+    height: 10vw;
+}
+
+.whyItems.row {
+    margin-bottom: 10vh;
+    
+    padding: 0 3.5vh;
 }
 
 div#services {
@@ -219,12 +234,13 @@ div#services {
     flex-direction: column;
     position: relative;
     padding-bottom: 120px;
+    padding-top: 10vh;
 }
 
 div#servicesTitle {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
+    font-size: 3vh;
     text-align: center;
+    padding: 5vh;
 }
 
 div#servicesList {
@@ -234,12 +250,12 @@ div#servicesList {
     grid-template-rows: auto;
     grid-gap: 44px; */
     justify-content: center;
-    padding: 60px 0;
+    padding: 2vh  10px;
 }
 
 .serviceItem {
     display: flex;
-    margin: 40px 10px 0;
+    margin: 5vh  10px 0;
 }
 
 .serviceItemName {
@@ -247,16 +263,16 @@ div#servicesList {
     font-family: Inter, sans-serif;
     padding: 10px 20px;
 }
+
 .serviceItemText {
-    /* min-width: 55%; */
+    padding: 4vh;
 }
 
 .serviceItemDesc {
-    /* font-size: 16px; */
-    /* width: 40%; */
     font-family: Inter, sans-serif;
     text-align: left;
     padding: 10px 20px;
+    font-size: 4vh;
 }
 
 .serviceItemImg {
@@ -270,10 +286,11 @@ div#servicesList {
     background-position: center;
 }
 
-svg#fourthWave{
+svg#fourthWave {
     position: absolute;
     bottom: 0;
     width: 100%;
+    height: 10vw;
 }
 
 
@@ -281,14 +298,14 @@ svg#fourthWave{
 
 #contactTitle {
     color: var(--mainColor);
-    font-size: 3em;
-    max-width: 1200px;
+    font-size: 2vh;
+    max-width: 84vw;
     margin-left: auto;
     margin-right: auto;
 }
 
 #contactFormTitle {
-    max-width: 1200px;
+    max-width: 84vw;
     margin-left: auto;
     margin-right: auto;
 }
@@ -303,7 +320,7 @@ svg#fourthWave{
 
     /* background-color: #000000; */
     padding: 30px;
-    max-width: 1100px;
+    max-width: 84vw;
     margin-left: auto;
     margin-right: auto;
     text-align: left;
@@ -316,11 +333,11 @@ svg#fourthWave{
 }
 
 div#contactText {
-    max-width: 1000px;
+    max-width: 84vw;
     margin-top: 5px;
     margin-bottom: 30px;
     display: inline-block;
-    font-size: 30px;
+    font-size: 3vh;
     font-family: Inter, sans-serif;
 }
 
@@ -330,20 +347,20 @@ div#contactTitle {
 
 div#mainContactContainer {
     text-align: left;
-    max-width: 1050px;
+    max-width: 84vw;
     margin: 0;
 }
 
 
 .fieldLabel {
-    font-size: 24px;
-    width: 206px;
+    font-size: 3vh;
+    width: 20vw;
     vertical-align: top;
 }
 
 .field {
-    width: 317px;
-    max-width: 90%;
+    width: 30vw;
+    max-width: 84vw;
 }
 
 .txtField {
@@ -352,12 +369,12 @@ div#mainContactContainer {
 
 .messageHolder {
     width: 100%;
-    max-width: 800px;
+    max-width: 84vw;
     display: inline-block;
 }
 
 .contactInput {
-    padding: 16px 0;
+    padding: 2vh 0;
 }
 
 .inputHolder {
@@ -366,7 +383,7 @@ div#mainContactContainer {
 
 p.formError {
     margin: 0;
-    padding-top: 20px;
+    padding-top: 2vh;
     color: #f03343;
     max-height: 0;
 }
@@ -374,11 +391,11 @@ p.formError {
 .formItemError {
     /* position: absolute; */
     color: #f03343;
-    font-size: 15px;
+    font-size: 2vh;
 }
 
 .contactSubmit {
-    margin-top: 24px;
+    margin-top: 2vh;
     display: flex;
 }
 
@@ -386,7 +403,7 @@ p.formError {
     padding: 5px;
     background-color: #212529;
     border-radius: 7px;
-    width: 60px;
+    width: 5vw;
     text-align: center;
     font-weight: 700;
     cursor: pointer;
@@ -419,11 +436,11 @@ p.formError {
 
 .rightRow {
     text-align: end;
-    padding-right: 30px;
+    padding-right: 3vw;
 }
 
 .rightRow span {
-    padding-right: 16px;
+    padding-right: 2vw;
 }
 
 .mdi {
@@ -446,18 +463,21 @@ p.formError {
 @media (max-width: 700px) {
 
     .row.splashHeader2 {
-        font-size: 40px;
+        font-size: 4vh;
     }
+
     .pivot {
         transform: scale(0.6);
     }
 
     .leftRow {
-        font-size: 12px;
+        font-size: 2vh;
     }
+
     a.navbar-brand {
         margin-left: 5px;
     }
+
     .row.splashItems {
         margin: 60px 0 0 15px;
     }
@@ -472,5 +492,13 @@ p.formError {
     .pivot {
         transform-origin: top;
         transform: scale(0.6);
+    }
+
+    .row.splashHeader2 {
+        font-size: 3vh;
+    }
+
+    .row.splashItems {
+        margin: 3vh 0 0 3vh;
     }
 }

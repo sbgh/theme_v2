@@ -69,7 +69,7 @@
                     alpha: true
                 });
 
-                renderer.setSize(innerWidth, innerHeight + 100);
+                renderer.setSize(innerWidth, innerHeight + 250);
 
                 var container = document.getElementById("cHolder");
                 container.appendChild(renderer.domElement);
@@ -390,8 +390,8 @@
             const servicesArr = servicesList.split("\n")
             const servicesImgArr = servicesListImgURLs.split("\n")
 
-            let twoDeeArr = [];
-            while (servicesArr.length) twoDeeArr.push(servicesArr.splice(0, 3));
+            let twoDeeArr = []
+            while (servicesArr.length) twoDeeArr.push(servicesArr.splice(0, 3))
 
             if (servicesArr.length % 3 == 0) {
                 for (let x in twoDeeArr) {
@@ -416,7 +416,6 @@
                     }
 
                     itemEle.find(".serviceItemImg").css({
-
                         "background-image": "url(" + sImg + ")"
                     })
 
