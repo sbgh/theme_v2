@@ -15,7 +15,6 @@
         body {
             --mainColor: <?php the_field('main_color'); ?>;
             --offWhite: <?php the_field('off_white_color'); ?>;
-            background-color: <?php the_field('main_color'); ?>;
         }
     </style>
 
