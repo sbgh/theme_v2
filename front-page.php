@@ -1,4 +1,6 @@
+
 <?php get_header(); ?>
+
 <div id="main" class="main">
     <div class="splash">
 
@@ -238,3 +240,6 @@
 
     <?php get_footer(); ?>
 </div>
+</body>
+
+</html>

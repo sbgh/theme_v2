@@ -84,8 +84,6 @@ div#cHolder {
     width: 100%;
     position: absolute;
     height: calc(100vh + 10vw);
-    /* background-color: var(--mainColor);  */
-    background-color: #7b1818; 
 }
 
 .wave{

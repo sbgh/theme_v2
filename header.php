@@ -16,6 +16,10 @@
             --mainColor: <?php the_field('main_color'); ?>;
             --offWhite: <?php the_field('off_white_color'); ?>;
         }
+
+        div#cHolder {
+            background-color: var(--mainColor);
+        }
     </style>
 
 </head>
@@ -23,9 +27,7 @@
 <body class='home'>
 
     <header>
-
     </header>
-
 
     <script>
         jQuery(document).ready(function($) {
