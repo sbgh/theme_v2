@@ -368,6 +368,9 @@ p.formError {
 
 /* ------------------------------------------------------------------- */
 
+footer.footerSection a {
+    color: white;
+}
 
 .footerSection {
     display: flex;

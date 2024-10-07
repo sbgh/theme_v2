@@ -323,14 +323,17 @@
             }
 
 
-            $(".mdi-linkedin").on("click", function() {
-                window.open("<?php the_field('li_link'); ?>", "_new");
+            $(".mdi-linkedin").on("click", function(event) {
+                window.open("<?php the_field('li_link'); ?>", "_new")
+                event.preventDefault()
             })
             $(".mdi-twitter").on("click", function() {
-                window.open("<?php the_field('tw_link'); ?>", "_new");
+                window.open("<?php the_field('tw_link'); ?>", "_new")
+                event.preventDefault()
             })
             $(".mdi-facebook").on("click", function() {
-                window.open("<?php the_field('fa_link'); ?>", "_new");
+                window.open("<?php the_field('fa_link'); ?>", "_new")                
+                event.preventDefault()
             })
 
             $("#whyBtn").on("click", function() {
