@@ -355,11 +355,12 @@ p.formError {
     display: flex;
 }
 
-#contactSubmit {
+#contactSubmitBtn {
     padding: 5px;
+    color:white;
     background-color: #212529;
+    border: solid white 1px;
     border-radius: 7px;
-    width: 5vw;
     text-align: center;
     font-weight: 700;
     cursor: pointer;
@@ -386,20 +387,33 @@ footer.footerSection a {
 .footerSection .row {
     justify-content: space-between;
     width: 100%;
+    flex-wrap: nowrap;
 }
 
-.footerSection .row div {
-    display: inline-block;
-    max-width: 50%;
+
+.leftRow{
+    /* display: inline-block; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: calc(100% - 10em);
 }
 
 .rightRow {
+    display: inline-block;
     text-align: end;
-    padding-right: 3vw;
+    white-space: nowrap;
+    max-width: 5em;
 }
 
-.rightRow span {
-    padding-right: 2vw;
+span.mdi.mdi-copyright {
+    white-space: nowrap;
+}
+
+a.attribution {
+    white-space: nowrap;
+    /* margin-left: auto;
+    margin-right: auto; */
 }
 
 .mdi {
@@ -430,7 +444,7 @@ footer.footerSection a {
     }
 
     .leftRow {
-        font-size: 2vh;
+        font-size: 12px;
     }
 
     a.navbar-brand {
@@ -450,6 +464,9 @@ footer.footerSection a {
     }
     .inputHolder {
         display: block;
+    }
+    .leftRow{
+        justify-content: flex-start;
     }
 }
 

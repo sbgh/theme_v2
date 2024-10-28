@@ -199,7 +199,7 @@
                                     class="required requiredField txtField"></textarea>
                                 <div id="messageError" class="formError formItemError"></div>
                                 <div class="contactSubmit">
-                                    <div id="contactSubmit">Send</div>
+                                    <btn id="contactSubmitBtn" class="btn">Send</btn>
 
                                     <div class="thanksContactMessage">
                                         <?php the_field('thank_you_contact_message'); ?>

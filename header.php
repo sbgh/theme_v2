@@ -428,7 +428,7 @@
             }
 
             //Contact
-            $("#contactSubmit").on("click", function() {
+            $("#contactSubmitBtn").on("click", function() {
 
                 focus = focus | 1;
                 $(".loader").fadeIn(200);
