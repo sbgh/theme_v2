@@ -254,7 +254,7 @@ div#servicesList {
     min-height: 200px;
     border-radius: 6vh;
     box-shadow: 0px 0px 21px 20px rgba(0, 0, 0, 0.1);
-    background-size: cover;
+    background-size: auto 100%;
     background-position: center;
 }
 
