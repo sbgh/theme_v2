@@ -218,7 +218,6 @@
                         }
                     });
                 }, 1000)
-
             }
 
             //--------------Observe text effect-----------------------------
@@ -274,7 +273,6 @@
                             $(ele).attr("data-x", x)
                             $(ele).attr("data-y", y)
                         }
-
                     }
                 });
             }
@@ -292,8 +290,7 @@
 
             }, 1000)
 
-            //-------------------------------------------
-
+            //-----------------------------------------------------
             //----------Populate third/fourth_moto text------------
             const third_motoTxt = "<?php the_field('third_moto'); ?>"
 
@@ -321,7 +318,6 @@
                 $("#customCard3").find(".customCardSubtitle").text(txtArr[4])
                 $("#customCard3").find(".customCardText").text(txtArr[5])
             }
-
 
             $(".mdi-linkedin").on("click", function(event) {
                 window.open("<?php the_field('li_link'); ?>", "_new")
@@ -443,7 +439,6 @@
                     if (i) {
                         $(i).prop("readonly", true).attr("disabled", true);
                     }
-
                 })
 
                 $('textarea').prop("readonly", true).attr("disabled", true);
